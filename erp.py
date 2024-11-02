@@ -679,6 +679,9 @@ class InventorySystem:
             state='readonly'
         ).pack(side=tk.LEFT, padx=5)
         
+        # 在商品选择框架之前添加 order_total_var 的初始化
+        self.order_total_var = tk.StringVar(value='0.00')
+
         # 商品选择框架
         product_frame = ttk.LabelFrame(input_frame, text="添加商品")
         product_frame.pack(fill=tk.X, padx=5, pady=5)
@@ -692,7 +695,6 @@ class InventorySystem:
         self.order_product_combo = ttk.Combobox(
             p_row1,
             textvariable=self.order_product_var,
-            values=self.order_product_combo['values'],
             state='readonly'
         )
         self.order_product_combo.pack(side=tk.LEFT, padx=5)
